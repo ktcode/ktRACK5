@@ -11,6 +11,7 @@ panel_thick = 2;
 
 BR = 27.6+1;
 BH = 8;
+BHD = 1.8;
 CR = 4.5;
 CH = 60;
 WW = 69;
@@ -39,10 +40,10 @@ difference()
         translate([SR/2, 0, SR/2]) rotate([90, 0, 0]) cylinder(Y, d=SR, $fn=100);
         translate([WW-SR/2, 0, SR/2]) rotate([90, 0, 0]) cylinder(Y, d=SR, $fn=100);
     }
-    translate([WW/2, -Y/2, panel_thick+gap1]) cylinder(BH, d=BR, $fn=100);
+    translate([WW/2, -Y/2, panel_thick+gap1+BHD]) cylinder(BH-BHD, d=BR, $fn=100);
     translate([WW/2, -Y/2, panel_thick+gap1]) cylinder(100, d=3, $fn=100);
-    translate([WW/2-CR/2, -Y/2+1.15, -gap1]) rotate([0, 0, -60]) cube([CR, CH, BH]);
-    translate([WW/2-CR/2, -Y/2+1.15, -gap1]) rotate([0, 0, -60]) cube([6, 14, BH]);
+    translate([WW/2-CR/2, -Y/2+1.15, -gap1]) rotate([0, 0, -60]) cube([CR, CH, BH+BHD/2]);
+    translate([WW/2-CR/2, -Y/2+1.15, -gap1]) rotate([0, 0, -60]) cube([6+1, 14, BH]);
     
     translate([15, -4, 2.5]) rotate([-45, 0, 0]) cylinder(30, d1=4.5, d2=4.5, $fn=100);
     translate([15, -4, 2.5]) rotate([-45, 0, 0]) cylinder( panel_thick, d1=8, d2=4.5, $fn=100);
